@@ -1,0 +1,21 @@
+input.onButtonPressed(Button.A, function () {
+    basic.pause(1000)
+    pins.servoWritePin(AnalogPin.P1, 180)
+    pins.servoWritePin(AnalogPin.P2, 180)
+    pins.servoWritePin(AnalogPin.P0, 180)
+    pins.servoWritePin(AnalogPin.P4, 180)
+})
+input.onButtonPressed(Button.B, function () {
+    basic.pause(1000)
+    pins.servoWritePin(AnalogPin.P1, 0)
+    pins.servoWritePin(AnalogPin.P2, 0)
+    pins.servoWritePin(AnalogPin.P0, 0)
+    pins.servoWritePin(AnalogPin.P4, 0)
+})
+let pixel = neopixel.create(DigitalPin.P0, 5, NeoPixelMode.RGB)
+pixel.showRainbow(1, 360)
+basic.forever(function () {
+    pixel.rotate(1)
+    pixel.show()
+    basic.pause(100)
+})
